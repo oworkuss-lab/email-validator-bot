@@ -27,7 +27,8 @@ from telegram.ext import (
 #                              КОНФИГУРАЦИЯ
 # ═══════════════════════════════════════════════════════════════════════════════
 
-BOT_TOKEN = "8535404887:AAFSYrEd3Fz7ymBtmRBKraYVQHl6oPkUvBw"
+# Используем токен из переменных окружения, если он установлен (лучшая практика для деплоя)
+BOT_TOKEN = os.getenv("BOT_TOKEN", "8535404887:AAFSYrEd3Fz7ymBtmRBKraYVQHl6oPkUvBw")
 MAILAPI_URL = "https://api.mailapi.dev/v1/verify"
 CONFIG_FILE = "bot_config.json"
 
@@ -559,7 +560,4 @@ async def handle_single_email(update: Update, context: ContextTypes.DEFAULT_TYPE
 
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Отмена операции"""
-    await update.message.reply_text("❌ Операция отменена. Используйте /start")
-    return ConversationHandler.END
-
-async def help_command(update: Updat
+    await update.message.reply_text
